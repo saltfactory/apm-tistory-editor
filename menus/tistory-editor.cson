@@ -1,0 +1,19 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.platform-darwin .tree-view':
+    'Buid Tistory Editor': 'tistory-editor:build'
+
+  '.overlayer':
+      'tistory-editor:build': 'tistory-editor:build'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Tistory Editor'
+      'submenu': [
+        { 'label': 'Build', 'command': 'tistory-editor:build' }
+      ]
+    ]
+  }
+]

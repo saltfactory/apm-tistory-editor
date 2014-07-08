@@ -1,0 +1,17 @@
+{
+  "name": "tistory-editor",
+  "main": "./lib/tistory-editor",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationEvents": ["tistory-editor:build"],
+  "repository": "https://github.com/atom/tistory-editor",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "cheerio": "latest",
+    "mime": "latest",
+    "fs-extra": "latest"
+  }
+}
