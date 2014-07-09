@@ -2,3 +2,6 @@
 .DS_Store
 npm-debug.log
 node_modules
+spec/_post
+**/*/*test.*
+**/*/*.test

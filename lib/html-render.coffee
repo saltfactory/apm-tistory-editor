@@ -35,6 +35,9 @@ module.exports =
           fs.unlinkSync(filepath)
       fs.rmdirSync(src)
 
+  # removeSpace:(str) ->
+  #   return str.replace(/(\s)/g, "\\ ")
+
   copyHtml: ->
     outputDir = path.join(@dest, path.basename(@filepath).split('.')[0])
     # console.log outputDir
@@ -53,8 +56,7 @@ module.exports =
     filename = path.join(outputDir, path.basename(@filepath))
     fs.writeFileSync(filename, @html.html())
 
-    filename = path.join(outputDir, path.basename(@filepath))
-    @build("#{filename}")
+    @build()
 
   copyImageSync: (src, dest) ->
     if(!fs.existsSync(dest))
@@ -63,11 +65,11 @@ module.exports =
       console.log "#{dest} exists!"
 
 
-  build: (filename)->
+  build: ->
     @html('img').each (i, element) =>
       imagepath = $(element).attr('src')
-
       if (imagepath.indexOf('http://') == -1) and (imagepath.indexOf('https://') == -1)
+        imagepath = path.join(@dest, path.basename(@filepath).split('.')[0], $(element).attr('src'))
         dataurl = "data:#{mime.lookup(imagepath)};base64,#{fs.readFileSync(imagepath).toString('base64')}"
         $(element).attr('src', dataurl)
 

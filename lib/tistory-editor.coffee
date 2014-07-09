@@ -3,7 +3,8 @@
 # mime = require 'mime'
 # path = require 'path'
 # $ = require 'cheerio'
-
+fs = require 'fs-extra'
+path = require 'path'
 htmlrender = require "#{atom.packages.getLoadedPackage('tistory-editor').path}/lib/html-render"
 
 module.exports =
